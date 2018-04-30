@@ -1,0 +1,50 @@
+#include<iostream>
+#include<cstdlib>
+using namespace std;
+int main()
+{
+	cout<<"Number Guessing Game"<<endl;	
+	cout<<"Rules:This is a number guessing game, please guess the random number following the instructions.\nIf you want to quit the game, input -1 at anytime."<<endl;
+	int x=0,i=0,sumsco=0,flag=1,num;
+	while(flag!=-1)
+	{
+		int score=0;
+		num=rand()%900+100;
+		while(i<8)
+		{
+			cout<<"Please guess the value of num."<<endl;
+			cin>>x;
+			if(x==-1)
+			{
+				sumsco+=score;
+				cout<<"Your final score is "<<sumsco<<endl;
+				system("pause");
+				return 0;
+			}
+			else if(x==num)
+			{
+				cout<<"Congratulations! You are right. Score+100!"<<endl;
+				score=score+100;
+				break;
+			}
+			else if(x<num)
+			{
+				cout<<"Sorry, you've guessed too small.Score-10, and "<<7-i<<" times left."<<endl;
+				score=score-10;
+			}
+			else if(x>num)
+			{
+				cout<<"Sorry, you've guessed too big.Score-10, and "<<7-i<<" times left."<<endl;
+				score=score-10;
+			}
+			i++;
+		}		
+		sumsco+=score;
+		cout<<"This turn you've got "<<score<<endl;
+		cout<<"Try again(1) or quit(-1)?"<<endl;
+		cin>>flag;
+	}
+	cout<<"Your final score is "<<sumsco<<endl;
+	system("pause");
+	return 0;	
+}
