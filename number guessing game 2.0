@@ -1,0 +1,49 @@
+#include<iostream>
+#include<cstdlib>
+using namespace std;
+int main()
+{
+	int sumscore=0,x=0;
+	cout<<"Please input your number or quit(-1)."<<endl;
+	cin>>x;
+	while(x!=-1)
+	{
+		int score=0,i=0;
+		int num=rand()%900+100;
+		while(x!=-1 && i<8)
+		{
+			if(x==num)
+			{
+				score+=100;
+				cout<<"Congratulations! You are right! Score+100"<<endl;
+				break;
+			}			
+			else if(x>num)
+			{
+				score+=-10;
+				sumscore+=score;
+				cout<<"You\'ve guessed too big, score-10, try again or quit(-1)."<<endl;
+			}
+			else if(x<num)
+			{
+				score+=-10;
+				cout<<"You\'ve guessed too small, score -10, try again or quit(-1)."<<endl;
+			}
+			sumscore+=score;
+			cout<<"Please input your number or quit(-1)."<<endl;
+			cin>>x;
+			if(x==-1)
+			{
+				cout<<"Your final score is"<<sumscore<<endl;
+				cout<<"Quit the game successfully, see you!"<<endl;
+				return 0;
+			}
+			i++;
+		}		
+		cout<<"This turn you\'ve got "<<score<<endl;
+		cout<<"Try again(input your number) or quit(-1)."<<endl;
+		cin>>x;
+	}
+	cout<<"Your final score is "<<sumscore<<endl;
+	return 0;
+}
