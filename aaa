@@ -1,0 +1,38 @@
+#include<iostream>
+#include<cmath>
+#include<cstring>
+using namespace std;
+int index(char t[100], char s[101])
+{
+	int i;
+//	char t[100], s[101];
+	for (int j = 0; s[j] != '\0'; j++)
+	{
+		i = -1;
+		for (int k = 0; t[k] != '\0' && s[j + k] != '\0'; k++)
+		{
+			if (s[j + k] != t[k]){
+				i = -1;
+				return -1;
+			}
+			else
+			{
+				i = 0;
+			}
+		}
+		if (i == 0){
+			return j;
+		}
+	}
+}
+int main()
+{
+	int i;
+	char t[100],s[101];
+	cout << "请输入两个数组" << endl;
+	cin >> t;
+	cin >> s;
+	int k=index(t,s);
+	cout << k<<endl;
+	return 0;
+}
