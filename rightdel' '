@@ -1,0 +1,23 @@
+#include<iostream>
+#include<cstring>
+using namespace std;
+void rightdel(char a[])
+{
+	for(char *p=&a[50];p>a;p--)
+	{
+		if(*p!=' ')
+		{
+			*(p+1)='\0';
+			break;
+		}
+	}
+}
+int main()
+{
+	char a[50];
+	cout<<"请输入字符串："<<endl;
+	cin.getline(a,50);
+	rightdel(a);
+	cout<<a<<111;
+	return 0;
+}
