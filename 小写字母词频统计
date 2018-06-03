@@ -1,0 +1,41 @@
+#include<iostream>
+#include<cstring>
+using namespace std;
+int main()
+{
+	char str[200],count[200];
+	int n,p=0;
+	cout<<"请输入原字符串(全为小写字母)"<<endl;
+	cin>>str;
+	n=strlen(str);
+	for(int i=0;i<26;i++){
+		int time=0;
+		for(int j=0;j<n;j++){
+			if(str[j]==char(i+97))
+				time++; 
+		}
+		if(time!=0){
+			int l=4;
+			double tmp=double(time);
+			while(tmp>=1){
+				tmp=tmp/10.0;
+				l=l-1;
+			}
+			count[p*5]=char(i+97);
+			int k=0;
+			for(k;k<l;k++){
+				count[5*p+k+1]='0';
+			}
+			int tmp1=time;
+			for(int q=0;q<4-l;q++){
+				int u=tmp1%10;
+				tmp1=tmp1/10;
+				count[5*p+k+4-l-q]=char(u+48);
+			}
+			p++;
+		}		
+	}
+	count[5*p]='\0';
+	cout<<count<<endl;
+	return 0;
+}
